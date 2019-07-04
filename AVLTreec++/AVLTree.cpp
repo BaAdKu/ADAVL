@@ -116,18 +116,21 @@ void AVLTree::Print(AVLElem * curr)
 
 void AVLTree::RotateLeft(AVLElem * &a)
 {
+	AVLElem* temp = a->parent;
+	temp->right = a->right;
+	temp->left = a;
 }
 
 void AVLTree::DoubleRotateLeft(AVLElem * &a)
 {
+
 }
 
 void AVLTree::RotateRight(AVLElem * &a)
 {
-	AVLElem* temp = a->left;
-	a->left = temp->right;
+	AVLElem* temp = a->parent;
+	temp->left = a->left;
 	temp->right = a;
-	a = temp;
 }
 
 void AVLTree::DoubleRotateRight(AVLElem * &a)
